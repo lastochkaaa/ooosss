@@ -1,0 +1,38 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs,StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+function calc(a,b:integer):integer;
+external 'Project1';
+
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(calc(StrToInt(Edit1.Text),StrToInt(Edit2.Text)));
+end;
+
+end.
